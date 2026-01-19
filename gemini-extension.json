@@ -29,7 +29,7 @@
       "description": "Redis MCP server for key-value storage and caching"
     },
     "Git Tools": {
-      "command": "python3",
+      "command": "python",
       "args": ["-m", "mcp_server_git"],
       "description": "Git operations through MCP protocol"
     },
@@ -45,7 +45,7 @@
     },
     "Filesystem": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/chrisdukes/Desktop"],
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "C:/" ],
       "description": "Filesystem operations MCP server"
     },
     "GitHub": {
@@ -86,37 +86,37 @@
   "customCommands": {
     "hive-mind": {
       "description": "Manage collective intelligence and hive mind operations",
-      "handler": "src/cli/commands/hive-mind.js",
+      "handler": "dist/cli/commands/hive-mind.js",
       "subcommands": ["init", "spawn", "status", "consensus", "memory", "sync", "stop"]
     },
     "swarm": {
       "description": "Coordinate intelligent agent swarms",
-      "handler": "src/cli/commands/swarm.js",
+      "handler": "dist/cli/commands/swarm.js",
       "subcommands": ["init", "spawn", "status", "monitor", "stop"]
     },
     "agent": {
       "description": "Manage individual AI agents",
-      "handler": "src/cli/commands/agent.js",
+      "handler": "dist/cli/commands/agent.js",
       "subcommands": ["spawn", "list", "status", "stop", "assign"]
     },
     "memory": {
       "description": "Memory management operations",
-      "handler": "src/cli/commands/memory.js",
+      "handler": "dist/cli/commands/memory.js",
       "subcommands": ["store", "retrieve", "query", "export", "import", "clear"]
     },
     "task": {
       "description": "Task coordination and management",
-      "handler": "src/cli/commands/task.js",
+      "handler": "dist/cli/commands/task.js",
       "subcommands": ["create", "assign", "status", "complete", "list"]
     },
     "sparc": {
       "description": "SPARC mode operations",
-      "handler": "src/cli/commands/sparc.js",
+      "handler": "dist/cli/commands/sparc.js",
       "subcommands": ["init", "specification", "pseudocode", "architecture", "refinement", "completion"]
     },
     "workspace": {
       "description": "Workspace management",
-      "handler": "src/cli/commands/workspace.js",
+      "handler": "dist/cli/commands/workspace.js",
       "subcommands": ["init", "sync", "status", "clean"]
     }
   },
