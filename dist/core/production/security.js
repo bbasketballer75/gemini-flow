@@ -4,6 +4,8 @@ import { Logger } from '../../utils/logger.js';
  * @description Implements enterprise-grade security features including encryption, IAM integration, and audit logging.
  */
 export class EnterpriseSecurity {
+    config;
+    logger;
     constructor(config) {
         this.config = config;
         this.logger = new Logger('EnterpriseSecurity');

@@ -4,6 +4,10 @@ import { Logger } from '../../utils/logger.js';
  * @description Optimizes Google Cloud Platform integration for cost, performance, and reliability.
  */
 export class GcpOptimizer {
+    config;
+    logger;
+    vertexAiOptimizer;
+    gcpOperations;
     constructor(config, vertexAiOptimizer, gcpOperations) {
         this.config = config;
         this.logger = new Logger('GcpOptimizer');

@@ -11,11 +11,17 @@
 import { EventEmitter } from "node:events";
 import { Logger } from "../utils/logger.js";
 export class BufferSyncManager extends EventEmitter {
+    logger;
+    bufferPools = new Map();
+    syncPoints = new Map();
+    clockReferences = new Map();
+    masterClock;
+    syncConfig;
+    adaptiveAlgorithm;
+    jitterBuffer;
+    performanceMonitor;
     constructor(syncConfig) {
         super();
-        this.bufferPools = new Map();
-        this.syncPoints = new Map();
-        this.clockReferences = new Map();
         this.logger = new Logger("BufferSyncManager");
         this.syncConfig = syncConfig;
         this.adaptiveAlgorithm = new AdaptiveBufferingAlgorithm();
@@ -509,9 +515,7 @@ export class BufferSyncManager extends EventEmitter {
  * Adaptive buffering algorithm implementation
  */
 class AdaptiveBufferingAlgorithm {
-    constructor() {
-        this.history = new Map();
-    }
+    history = new Map();
     calculateOptimalStrategy(current, conditions, metrics) {
         // Analyze current performance
         const performanceScore = this.calculatePerformanceScore(metrics);
@@ -591,9 +595,7 @@ class AdaptiveBufferingAlgorithm {
  * Jitter buffer implementation
  */
 class JitterBuffer {
-    constructor() {
-        this.buffers = new Map();
-    }
+    buffers = new Map();
     addPacket(streamId, packet) {
         // Jitter buffer implementation
     }

@@ -4,6 +4,10 @@ import { Logger } from '../../utils/logger.js';
  * @description Provides live event stream visualization, real-time performance dashboards, and automated alerting.
  */
 export class RealTimeMonitoring {
+    config;
+    logger;
+    eventBus;
+    gcpOperations;
     constructor(config, eventBus, gcpOperations) {
         this.config = config;
         this.logger = new Logger('RealTimeMonitoring');

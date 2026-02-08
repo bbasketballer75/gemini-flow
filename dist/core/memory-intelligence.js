@@ -3,6 +3,7 @@
  * @description Builds intelligent memory management with semantic search, optimization, and context-aware retrieval.
  */
 export class MemoryIntelligence {
+    dbCore;
     constructor(dbCore) {
         this.dbCore = dbCore;
     }

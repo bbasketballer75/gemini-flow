@@ -9,6 +9,9 @@ import ora from 'ora';
 import { Logger } from '../../utils/logger.js';
 import { JulesCliWrapper, JulesTaskOrchestrator, } from '../../integrations/jules/index.js';
 export class JulesCommand extends Command {
+    logger;
+    cliWrapper;
+    orchestrator;
     constructor() {
         super('jules');
         this.logger = new Logger('JulesCommand');

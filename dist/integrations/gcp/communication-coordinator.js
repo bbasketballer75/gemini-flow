@@ -4,6 +4,8 @@ import { Logger } from '../../utils/logger.js';
  * @description Orchestrates real-time messaging, persistent storage, and data distribution across Google Cloud Pub/Sub, Cloud Storage, Firebase Realtime Database, Cloud CDN, and Cloud Endpoints.
  */
 export class CommunicationCoordinator {
+    config;
+    logger;
     // Placeholders for GCP communication/storage clients
     // private pubSubClient: any;
     // private storageClient: any;

@@ -20,15 +20,24 @@ import * as path from 'path';
  * Main orchestrator for self-improving evolutionary cleanup system
  */
 export class DGMSystemCoordinator extends EventEmitter {
+    logger;
+    config;
+    // Core components
+    performanceMonitor;
+    coordinationOptimizer;
+    evolutionaryOrchestrator;
+    patternArchive;
+    autonomousMonitor;
+    fitnessFunction;
+    // System state
+    isInitialized = false;
+    isActive = false;
+    startTime = new Date();
+    currentBaseline = null;
+    evolutionHistory = [];
+    systemRecommendations = [];
     constructor(config) {
         super();
-        // System state
-        this.isInitialized = false;
-        this.isActive = false;
-        this.startTime = new Date();
-        this.currentBaseline = null;
-        this.evolutionHistory = [];
-        this.systemRecommendations = [];
         this.config = config;
         this.logger = new Logger('DGMSystemCoordinator');
         // Initialize components

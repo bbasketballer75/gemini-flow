@@ -4,6 +4,11 @@ import { Logger } from '../../utils/logger.js';
  * @description Connects the tool ecosystem with existing systems like SQLite memory, Google AI services, and agent coordination.
  */
 export class ToolIntegration {
+    dbCore;
+    memoryIntelligence;
+    toolExecutor;
+    toolRegistry;
+    logger;
     constructor(dbCore, memoryIntelligence, toolExecutor, toolRegistry) {
         this.dbCore = dbCore;
         this.memoryIntelligence = memoryIntelligence;

@@ -4,8 +4,11 @@ import { Logger } from '../../utils/logger.js';
  * @description Manages WebAssembly module lifecycle, memory, and task offloading for performance enhancement.
  */
 export class WasmPerformanceManager {
+    config;
+    logger;
+    wasmEngine;
+    loadedModules = new Map();
     constructor(config, wasmEngine) {
-        this.loadedModules = new Map();
         this.config = config;
         this.logger = new Logger('WasmPerformanceManager');
         this.wasmEngine = wasmEngine;

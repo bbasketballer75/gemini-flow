@@ -4,6 +4,10 @@ import { Logger } from '../../utils/logger.js';
  * @description Provides comprehensive observability with Google Cloud Operations Suite, custom metrics, distributed tracing, and predictive monitoring.
  */
 export class ProductionMonitoring {
+    config;
+    logger;
+    gcpOperations;
+    neuralModels;
     constructor(config, gcpOperations, neuralModels) {
         this.config = config;
         this.logger = new Logger('ProductionMonitoring');

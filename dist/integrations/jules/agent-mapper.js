@@ -12,40 +12,42 @@ import { AGENT_DEFINITIONS } from '../../agents/agent-definitions.js';
  * Maps Jules tasks to the optimal agent swarm configuration
  */
 export class JulesAgentMapper {
+    logger;
+    agentDefinitions;
+    // Task type to agent category mapping
+    TASK_AGENT_MAPPING = {
+        'bug-fix': {
+            primary: ['core-development', 'testing-specialists', 'code-quality'],
+            validators: ['code-quality', 'security-framework'],
+            coordinators: ['swarm-coordination'],
+            agents: ['coder', 'debugger', 'tester', 'reviewer']
+        },
+        'feature': {
+            primary: ['core-development', 'creative-development', 'engineering-operations'],
+            validators: ['code-quality', 'testing-specialists', 'security-framework'],
+            coordinators: ['swarm-coordination'],
+            agents: ['planner', 'architect', 'coder', 'tester', 'reviewer']
+        },
+        'refactor': {
+            primary: ['code-quality', 'performance-optimization', 'core-development'],
+            validators: ['testing-specialists', 'security-framework'],
+            coordinators: ['swarm-coordination'],
+            agents: ['refactorer', 'performance-optimizer', 'code-quality-specialist', 'tester']
+        },
+        'documentation': {
+            primary: ['documentation-specialists', 'knowledge-management'],
+            validators: ['code-quality'],
+            coordinators: ['swarm-coordination'],
+            agents: ['documentation-writer', 'technical-writer', 'knowledge-curator']
+        },
+        'test': {
+            primary: ['testing-specialists', 'code-quality'],
+            validators: ['core-development'],
+            coordinators: ['swarm-coordination'],
+            agents: ['test-engineer', 'qa-specialist', 'integration-tester', 'performance-tester']
+        }
+    };
     constructor() {
-        // Task type to agent category mapping
-        this.TASK_AGENT_MAPPING = {
-            'bug-fix': {
-                primary: ['core-development', 'testing-specialists', 'code-quality'],
-                validators: ['code-quality', 'security-framework'],
-                coordinators: ['swarm-coordination'],
-                agents: ['coder', 'debugger', 'tester', 'reviewer']
-            },
-            'feature': {
-                primary: ['core-development', 'creative-development', 'engineering-operations'],
-                validators: ['code-quality', 'testing-specialists', 'security-framework'],
-                coordinators: ['swarm-coordination'],
-                agents: ['planner', 'architect', 'coder', 'tester', 'reviewer']
-            },
-            'refactor': {
-                primary: ['code-quality', 'performance-optimization', 'core-development'],
-                validators: ['testing-specialists', 'security-framework'],
-                coordinators: ['swarm-coordination'],
-                agents: ['refactorer', 'performance-optimizer', 'code-quality-specialist', 'tester']
-            },
-            'documentation': {
-                primary: ['documentation-specialists', 'knowledge-management'],
-                validators: ['code-quality'],
-                coordinators: ['swarm-coordination'],
-                agents: ['documentation-writer', 'technical-writer', 'knowledge-curator']
-            },
-            'test': {
-                primary: ['testing-specialists', 'code-quality'],
-                validators: ['core-development'],
-                coordinators: ['swarm-coordination'],
-                agents: ['test-engineer', 'qa-specialist', 'integration-tester', 'performance-tester']
-            }
-        };
         this.logger = new Logger('JulesAgentMapper');
         this.agentDefinitions = AGENT_DEFINITIONS;
     }

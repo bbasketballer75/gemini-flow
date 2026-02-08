@@ -4,6 +4,8 @@ import { Logger } from '../../utils/logger.js';
  * @description Orchestrates data operations across Google Cloud SQL, Cloud Spanner, Firestore, BigQuery, and Cloud Bigtable.
  */
 export class DatabaseCoordinator {
+    config;
+    logger;
     // Placeholders for GCP database clients
     // private cloudSqlClient: any;
     // private spannerClient: any;

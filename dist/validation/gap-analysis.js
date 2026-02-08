@@ -4,6 +4,8 @@ import { Logger } from '../utils/logger.js';
  * @description Identifies missing components, performance shortfalls, and implements automated remediation.
  */
 export class GapAnalyzer {
+    config;
+    logger;
     constructor(config) {
         this.config = config;
         this.logger = new Logger('GapAnalyzer');

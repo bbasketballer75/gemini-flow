@@ -4,6 +4,10 @@ import { Logger } from '../../utils/logger.js';
  * @description Implements neural networks for predictive load balancing, anomaly detection, performance optimization, and pattern recognition in coordination.
  */
 export class NeuralCoordinationModels {
+    config;
+    logger;
+    wasmEngine;
+    loadedModel; // The loaded neural network model
     constructor(config, wasmEngine) {
         this.config = config;
         this.logger = new Logger('NeuralCoordinationModels');

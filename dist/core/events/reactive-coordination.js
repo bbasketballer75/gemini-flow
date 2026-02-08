@@ -4,6 +4,11 @@ import { Logger } from '../../utils/logger.js';
  * @description Implements reactive systems that respond to real-time conditions and events.
  */
 export class ReactiveCoordination {
+    config;
+    logger;
+    eventBus;
+    computeCoordinator;
+    coordinationEngine;
     constructor(config, eventBus, computeCoordinator, coordinationEngine) {
         this.config = config;
         this.logger = new Logger('ReactiveCoordination');

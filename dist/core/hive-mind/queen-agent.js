@@ -4,6 +4,12 @@ import { Logger } from '../../utils/logger.js';
  * @description Implements the central coordination and decision-making authority for the Hive-Mind.
  */
 export class QueenAgent {
+    config;
+    logger;
+    dbCore;
+    memoryIntelligence;
+    toolExecutor;
+    toolRegistry;
     // Placeholder for Vertex AI client
     // private vertexAiClient: any;
     // Placeholder for Firestore client

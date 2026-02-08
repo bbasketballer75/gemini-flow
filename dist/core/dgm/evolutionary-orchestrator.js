@@ -11,13 +11,17 @@ import { EventEmitter } from 'events';
  * Implements self-improving evolutionary cleanup strategies
  */
 export class DGMEvolutionaryOrchestrator extends EventEmitter {
+    logger;
+    coordinationOptimizer;
+    performanceMonitor;
+    config;
+    // Evolution state
+    currentGeneration = 0;
+    strategies = new Map();
+    archive = [];
+    baseline = null;
     constructor(config, coordinationOptimizer, performanceMonitor) {
         super();
-        // Evolution state
-        this.currentGeneration = 0;
-        this.strategies = new Map();
-        this.archive = [];
-        this.baseline = null;
         this.config = config;
         this.logger = new Logger('DGMEvolutionaryOrchestrator');
         this.coordinationOptimizer = coordinationOptimizer;

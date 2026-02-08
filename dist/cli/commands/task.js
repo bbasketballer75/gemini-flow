@@ -8,6 +8,7 @@ import chalk from "chalk";
 import ora from "ora";
 import { Logger } from "../../utils/logger.js";
 export class TaskCommand extends Command {
+    logger;
     constructor() {
         super("task");
         this.logger = new Logger("Task");

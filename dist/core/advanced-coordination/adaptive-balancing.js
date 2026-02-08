@@ -4,6 +4,9 @@ import { Logger } from '../../utils/logger.js';
  * @description Implements real-time adjustment of worker assignments and dynamic scaling based on predicted demand.
  */
 export class AdaptiveLoadBalancer {
+    config;
+    logger;
+    predictiveSystem;
     constructor(config, predictiveSystem) {
         this.config = config;
         this.logger = new Logger('AdaptiveLoadBalancer');

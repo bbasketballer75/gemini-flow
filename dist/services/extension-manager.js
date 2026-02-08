@@ -18,9 +18,8 @@ const EXTENSIONS_CONFIG_FILE = path.join(EXTENSIONS_DIR, 'extensions.json');
  * Extension Manager Service
  */
 export class ExtensionManager {
-    constructor() {
-        this.config = null;
-    }
+    config = null;
+    constructor() { }
     /**
      * Initialize extension manager
      */

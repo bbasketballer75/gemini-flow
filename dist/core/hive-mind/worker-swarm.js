@@ -4,6 +4,12 @@ import { Logger } from '../../utils/logger.js';
  * @description Implements a specialized worker agent within the Hive-Mind swarm.
  */
 export class WorkerAgent {
+    config;
+    logger;
+    dbCore;
+    memoryIntelligence;
+    toolExecutor;
+    toolRegistry;
     // Placeholder for Vertex AI client
     // private vertexAiClient: any;
     // Placeholder for Pub/Sub client

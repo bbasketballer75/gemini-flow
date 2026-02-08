@@ -10,18 +10,24 @@ import { EventEmitter } from 'events';
  * Autonomous monitoring system for preventing technical debt
  */
 export class DGMAutonomousMonitor extends EventEmitter {
+    logger;
+    config;
+    performanceMonitor;
+    evolutionaryOrchestrator;
+    patternArchive;
+    // Monitoring state
+    isMonitoring = false;
+    monitoringInterval = null;
+    currentDebt;
+    debtHistory = [];
+    activeAlerts = new Map();
+    runningEvolutions = new Set();
+    lastEvolutionTime = new Date(0);
+    // Trend analysis
+    trendWindow = 10; // Number of measurements for trend analysis
+    alertHistory = new Map();
     constructor(config, performanceMonitor, evolutionaryOrchestrator, patternArchive) {
         super();
-        // Monitoring state
-        this.isMonitoring = false;
-        this.monitoringInterval = null;
-        this.debtHistory = [];
-        this.activeAlerts = new Map();
-        this.runningEvolutions = new Set();
-        this.lastEvolutionTime = new Date(0);
-        // Trend analysis
-        this.trendWindow = 10; // Number of measurements for trend analysis
-        this.alertHistory = new Map();
         this.config = config;
         this.performanceMonitor = performanceMonitor;
         this.evolutionaryOrchestrator = evolutionaryOrchestrator;

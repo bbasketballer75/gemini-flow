@@ -16,11 +16,13 @@ import { Logger } from "../utils/logger.js";
  * Ensures seamless state sharing and environment consistency
  */
 export class ContextIntegrationManager extends EventEmitter {
+    logger;
+    config;
+    contextCache = new Map();
+    activeContexts = new Set();
+    tempFiles = new Set();
     constructor(options = {}) {
         super();
-        this.contextCache = new Map();
-        this.activeContexts = new Set();
-        this.tempFiles = new Set();
         this.logger = new Logger("ContextIntegrationManager");
         this.config = {
             enableEnvironmentSync: true,

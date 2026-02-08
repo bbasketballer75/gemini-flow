@@ -8,8 +8,10 @@ const CONFIG_FILE_PATH = path.join(process.cwd(), '.gemini-flow', 'config.json')
  * @description Provides a single source of truth for all system configuration, supporting environment-specific settings and dynamic updates.
  */
 export class UnifiedConfigManager {
+    config = null;
+    logger;
+    configFilePath;
     constructor(configManagerConfig) {
-        this.config = null;
         this.configFilePath = configManagerConfig?.configFilePath || CONFIG_FILE_PATH;
         this.logger = new Logger('UnifiedConfigManager');
         this.logger.info('Unified Configuration Manager initialized.');

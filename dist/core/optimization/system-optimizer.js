@@ -4,6 +4,10 @@ import { Logger } from '../../utils/logger.js';
  * @description Fine-tunes the entire system for production deployment by optimizing memory, CPU, network, and database performance.
  */
 export class SystemOptimizer {
+    config;
+    logger;
+    dbCore;
+    neuralModels;
     constructor(config, dbCore, neuralModels) {
         this.config = config;
         this.logger = new Logger('SystemOptimizer');

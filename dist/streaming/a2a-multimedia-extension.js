@@ -11,12 +11,19 @@
 import { EventEmitter } from "node:events";
 import { Logger } from "../utils/logger.js";
 export class A2AMultimediaExtension extends EventEmitter {
+    logger;
+    extension;
+    agents = new Map();
+    sessions = new Map();
+    messageQueue = [];
+    consensusProposals = new Map();
+    loadBalancer;
+    consensusManager;
+    syncCoordinator;
+    failoverManager;
+    messageRouter;
     constructor(config) {
         super();
-        this.agents = new Map();
-        this.sessions = new Map();
-        this.messageQueue = [];
-        this.consensusProposals = new Map();
         this.logger = new Logger("A2AMultimediaExtension");
         this.extension = {
             version: "1.0.0",
@@ -714,19 +721,17 @@ export class A2AMultimediaExtension extends EventEmitter {
  * Multimedia load balancer
  */
 class MultimediaLoadBalancer {
-    constructor() {
-        this.strategy = {
-            algorithm: "adaptive",
-            parameters: {
-                maxLoadPerAgent: 0.8,
-                geographicPreference: true,
-                capabilityWeighting: 0.3,
-                latencyThreshold: 100,
-            },
-            rebalanceInterval: 60000,
-            hysteresis: 0.1,
-        };
-    }
+    strategy = {
+        algorithm: "adaptive",
+        parameters: {
+            maxLoadPerAgent: 0.8,
+            geographicPreference: true,
+            capabilityWeighting: 0.3,
+            latencyThreshold: 100,
+        },
+        rebalanceInterval: 60000,
+        hysteresis: 0.1,
+    };
     async selectAgent(agents, request, session) {
         // Implementation would select optimal agent based on strategy
         return agents.find((agent) => agent.status === "online") || null;

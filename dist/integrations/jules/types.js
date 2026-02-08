@@ -26,6 +26,10 @@ export var JulesErrorType;
  * Jules error
  */
 export class JulesError extends Error {
+    type;
+    taskId;
+    statusCode;
+    details;
     constructor(message, type, options) {
         super(message);
         this.name = 'JulesError';

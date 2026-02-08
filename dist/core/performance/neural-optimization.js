@@ -4,6 +4,10 @@ import { Logger } from '../../utils/logger.js';
  * @description Provides AI-driven system performance tuning and optimization using neural networks.
  */
 export class NeuralPerformanceOptimizer {
+    config;
+    logger;
+    neuralModels;
+    vertexAiOptimizer;
     constructor(config, neuralModels, vertexAiOptimizer) {
         this.config = config;
         this.logger = new Logger('NeuralPerformanceOptimizer');

@@ -4,6 +4,9 @@ import { Logger } from '../../utils/logger.js';
  * @description Manages real-time event detection and publishes them to the Hook Registry.
  */
 export class EventTriggers {
+    config;
+    hookRegistry;
+    logger;
     // Placeholder for Pub/Sub client
     // private pubSubClient: any;
     constructor(config, hookRegistry) {

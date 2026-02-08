@@ -4,6 +4,9 @@ import { Logger } from '../utils/logger.js';
  * @description Configures Google Cloud Operations Suite for comprehensive monitoring and alerting.
  */
 export class MonitoringSetup {
+    config;
+    logger;
+    gcpOperations;
     constructor(config, gcpOperations) {
         this.config = config;
         this.logger = new Logger('MonitoringSetup');

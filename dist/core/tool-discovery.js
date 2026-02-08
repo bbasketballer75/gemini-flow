@@ -8,9 +8,10 @@ const TOOL_CATEGORIES_BASE_DIR = path.join(process.cwd(), 'src', 'tools', 'categ
  * @description Builds an intelligent tool discovery system for automatic registration and capability mapping.
  */
 export class ToolDiscoveryEngine {
+    discoveredTools = new Map(); // toolName -> DiscoveredTool
+    toolsByCategory = new Map(); // category -> DiscoveredTool[]
+    logger;
     constructor() {
-        this.discoveredTools = new Map(); // toolName -> DiscoveredTool
-        this.toolsByCategory = new Map(); // category -> DiscoveredTool[]
         this.logger = new Logger('ToolDiscoveryEngine');
     }
     /**

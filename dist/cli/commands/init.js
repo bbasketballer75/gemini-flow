@@ -10,6 +10,8 @@ import ora from "ora";
 import inquirer from "inquirer";
 import { Logger } from "../../utils/logger.js";
 export class InitCommand extends Command {
+    logger;
+    _configManager;
     constructor(configManager) {
         super("init");
         this._configManager = configManager;

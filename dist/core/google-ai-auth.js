@@ -9,8 +9,10 @@ import * as path from "path";
 import * as os from "os";
 import { Logger } from "../utils/logger.js";
 export class GoogleAIAuth {
+    apiKey = null;
+    configPath;
+    logger;
     constructor(options = {}) {
-        this.apiKey = null;
         this.logger = new Logger("GoogleAIAuth");
         // Set config path
         this.configPath = options.configPath || this.getDefaultConfigPath();

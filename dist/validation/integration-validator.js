@@ -4,6 +4,8 @@ import { Logger } from '../utils/logger.js';
  * @description Provides comprehensive validation for the integration of components across Sprints 4-6.
  */
 export class IntegrationValidator {
+    config;
+    logger;
     // Conceptual instances of integrated components
     // private queenAgent: QueenAgent;
     // private byzantineConsensus: ByzantineConsensus;

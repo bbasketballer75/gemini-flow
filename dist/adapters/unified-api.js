@@ -11,17 +11,22 @@ import { DeepMindAdapter } from "./deepmind-adapter.js";
 import { JulesWorkflowAdapter } from "./jules-workflow-adapter.js";
 import { EnhancedStreamingAPI, } from "../streaming/enhanced-streaming-api.js";
 export class UnifiedAPI extends EventEmitter {
+    logger;
+    config;
+    adapters = new Map();
+    // private _routingCache = new Map<string, RoutingDecision>(); // Reserved for future optimization
+    circuitBreakers = new Map();
+    metrics;
+    performanceHistory = [];
+    // Fast routing optimization
+    routingDecisionCache = new Map();
+    capabilityMatrix = new Map(); // adapter -> capabilities
+    latencyBaseline = new Map(); // adapter -> avg latency
+    // Enhanced streaming capabilities
+    streamingAPI;
+    streamingSessions = new Map();
     constructor(config) {
         super();
-        this.adapters = new Map();
-        // private _routingCache = new Map<string, RoutingDecision>(); // Reserved for future optimization
-        this.circuitBreakers = new Map();
-        this.performanceHistory = [];
-        // Fast routing optimization
-        this.routingDecisionCache = new Map();
-        this.capabilityMatrix = new Map(); // adapter -> capabilities
-        this.latencyBaseline = new Map(); // adapter -> avg latency
-        this.streamingSessions = new Map();
         this.logger = new Logger("UnifiedAPI");
         this.config = config;
         this.metrics = this.initializeMetrics();

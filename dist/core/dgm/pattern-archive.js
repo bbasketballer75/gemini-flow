@@ -12,12 +12,14 @@ import * as path from 'path';
  * Pattern Archive for storing and retrieving successful evolutionary strategies
  */
 export class DGMPatternArchive extends EventEmitter {
+    logger;
+    archivePath;
+    patterns = new Map();
+    indexByDomain = new Map();
+    indexByFileType = new Map();
+    indexByFitness = [];
     constructor(archivePath = './data/dgm-patterns') {
         super();
-        this.patterns = new Map();
-        this.indexByDomain = new Map();
-        this.indexByFileType = new Map();
-        this.indexByFitness = [];
         this.archivePath = archivePath;
         this.logger = new Logger('DGMPatternArchive');
         this.initializeArchive();

@@ -4,8 +4,11 @@ import { Logger } from '../../utils/logger.js';
  * @description Implements a high-performance event routing system with Google Cloud Pub/Sub integration.
  */
 export class EventBus {
+    config;
+    logger;
+    communicationCoordinator;
+    subscriptions = new Map(); // eventType -> handlers
     constructor(config, communicationCoordinator) {
-        this.subscriptions = new Map(); // eventType -> handlers
         this.config = config;
         this.logger = new Logger('EventBus');
         this.communicationCoordinator = communicationCoordinator;

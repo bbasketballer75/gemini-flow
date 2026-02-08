@@ -15,9 +15,13 @@ const execAsync = promisify(exec);
  * Provides comprehensive integration with Jules Tools CLI and API
  */
 export class JulesCliWrapper {
+    logger;
+    config;
+    initialized = false;
+    cliPath;
+    apiEndpoint;
+    logCallbacks = new Map();
     constructor(config) {
-        this.initialized = false;
-        this.logCallbacks = new Map();
         this.logger = new Logger('JulesCliWrapper');
         this.config = {
             timeout: 120000, // 2 minutes default

@@ -4,6 +4,9 @@ import { Logger } from '../../utils/logger.js';
  * @description Provides Vertex AI-powered reasoning, decision making, and model optimization for agents.
  */
 export class AgentEnhancement {
+    config;
+    logger;
+    modelOrchestrator;
     constructor(config, modelOrchestrator) {
         this.config = config;
         this.logger = new Logger('AgentEnhancement');

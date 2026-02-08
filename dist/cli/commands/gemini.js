@@ -10,6 +10,9 @@ import { Logger } from "../../utils/logger.js";
 import { GeminiIntegrationService } from "../../services/gemini-integration.js";
 import { QuantumClassicalHybridService } from "../../services/quantum-classical-hybrid.js";
 export class GeminiCommand extends Command {
+    logger;
+    integrationService;
+    quantumService;
     constructor() {
         super("gemini");
         this.logger = new Logger("GeminiCommand");

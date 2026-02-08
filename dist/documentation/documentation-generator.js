@@ -6,6 +6,8 @@ import * as path from 'path';
  * @description Orchestrates the generation of comprehensive documentation for users, developers, and operations.
  */
 export class DocumentationGenerator {
+    config;
+    logger;
     constructor(config) {
         this.config = config;
         this.logger = new Logger('DocumentationGenerator');

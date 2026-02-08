@@ -13,6 +13,8 @@ import { GeminiAdapter, } from "../../adapters/gemini-adapter.js";
 import { promises as fs } from "fs";
 import path from "path";
 export class HiveMindCommand extends Command {
+    logger;
+    geminiAdapter;
     constructor() {
         super("hive-mind");
         this.logger = new Logger("HiveMind");

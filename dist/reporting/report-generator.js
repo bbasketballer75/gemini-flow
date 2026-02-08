@@ -6,6 +6,8 @@ import * as path from 'path';
  * @description Orchestrates the generation of comprehensive system validation reports.
  */
 export class ReportGenerator {
+    config;
+    logger;
     // Conceptual instances of validators and optimizers for data aggregation
     // private componentValidator: ComponentValidator;
     // private integrationValidator: IntegrationValidator;

@@ -9,8 +9,10 @@ import { Logger } from '../../utils/logger.js';
  * DGM Fitness Function System for Code Quality Assessment
  */
 export class DGMFitnessFunction {
+    logger;
+    config;
+    baselineMetrics = null;
     constructor(config) {
-        this.baselineMetrics = null;
         this.logger = new Logger('DGMFitnessFunction');
         this.config = this.initializeConfig(config);
         this.logger.info('Fitness function system initialized', {

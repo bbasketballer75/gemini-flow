@@ -10,10 +10,15 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as os from 'os';
 export class CLIPreferenceManager extends EventEmitter {
+    static instance;
+    preferences;
+    configPath;
+    backupPath;
+    migrations;
+    isLoaded = false;
+    saveTimeout = null;
     constructor(config) {
         super();
-        this.isLoaded = false;
-        this.saveTimeout = null;
         this.preferences = { ...config.defaults };
         this.configPath = config.configPath;
         this.backupPath = config.backupPath;

@@ -4,6 +4,10 @@ import { Logger } from '../../utils/logger.js';
  * @description Implements advanced optimization techniques for coordination strategies.
  */
 export class CoordinationOptimizer {
+    config;
+    logger;
+    neuralModels;
+    gcpOperations;
     constructor(config, neuralModels, gcpOperations) {
         this.config = config;
         this.logger = new Logger('CoordinationOptimizer');

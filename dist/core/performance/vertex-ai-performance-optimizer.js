@@ -4,6 +4,9 @@ import { Logger } from '../../utils/logger.js';
  * @description Provides enterprise-grade optimization for Vertex AI model performance and cost.
  */
 export class VertexAiPerformanceOptimizer {
+    config;
+    logger;
+    modelOrchestrator;
     constructor(config, modelOrchestrator) {
         this.config = config;
         this.logger = new Logger('VertexAiPerformanceOptimizer');

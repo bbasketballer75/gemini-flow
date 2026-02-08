@@ -4,6 +4,8 @@ import { Logger } from '../../utils/logger.js';
  * @description Creates a robust tool execution infrastructure with async execution, error handling, and chaining.
  */
 export class ToolExecutor {
+    toolDiscovery;
+    logger;
     constructor(toolDiscovery) {
         this.toolDiscovery = toolDiscovery;
         this.logger = new Logger('ToolExecutor');

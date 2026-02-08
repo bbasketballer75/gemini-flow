@@ -11,11 +11,17 @@
 import { EventEmitter } from "node:events";
 import { Logger } from "../utils/logger.js";
 export class WebRTCArchitecture extends EventEmitter {
+    logger;
+    config;
+    peers = new Map();
+    sessions = new Map();
+    signalingEndpoints = [];
+    iceServers;
+    performanceMonitor;
+    qualityAdapter;
+    syncManager;
     constructor(config) {
         super();
-        this.peers = new Map();
-        this.sessions = new Map();
-        this.signalingEndpoints = [];
         this.logger = new Logger("WebRTCArchitecture");
         this.config = config;
         this.iceServers = config.iceServers;
@@ -569,10 +575,8 @@ class PerformanceMonitor {
  * Quality adaptation helper class
  */
 class QualityAdapter {
-    constructor() {
-        this.adaptationRules = [];
-        this.cooldowns = new Map();
-    }
+    adaptationRules = [];
+    cooldowns = new Map();
     startAdaptation(streamId, type, initialQuality) {
         // Initialize adaptation monitoring
     }

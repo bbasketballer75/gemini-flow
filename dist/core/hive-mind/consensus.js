@@ -4,6 +4,9 @@ import { Logger } from '../../utils/logger.js';
  * @description Implements a fault-tolerant decision-making mechanism with Byzantine fault tolerance.
  */
 export class ByzantineConsensus {
+    config;
+    logger;
+    dbCore;
     // Placeholder for Cloud Spanner client
     // private spannerClient: any;
     constructor(config, dbCore) {

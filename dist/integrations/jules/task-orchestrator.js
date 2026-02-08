@@ -12,6 +12,11 @@ import { QuantumClassicalHybridService } from '../../services/quantum-classical-
  * Jules Task Orchestrator
  */
 export class JulesTaskOrchestrator {
+    logger;
+    cliWrapper;
+    agentMapper;
+    quantumService;
+    options;
     constructor(config, options) {
         this.logger = new Logger('JulesTaskOrchestrator');
         this.cliWrapper = new JulesCliWrapper(config);

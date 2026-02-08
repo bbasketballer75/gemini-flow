@@ -4,6 +4,8 @@ import { Logger } from '../utils/logger.js';
  * @description Provides comprehensive validation for individual components implemented in Sprints 1-3.
  */
 export class ComponentValidator {
+    config;
+    logger;
     // Conceptual instances of components to be validated
     // private mcpSettingsManager: MCPSettingsManager;
     // private mcpServerRegistry: MCPServerRegistry;

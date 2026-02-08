@@ -17,8 +17,10 @@ const execAsync = promisify(execSync);
  * Provides fallback capabilities when official CLI is unavailable
  */
 export class GeminiCLIDetector {
+    logger;
+    config;
+    detectionCache = new Map();
     constructor(config = {}) {
-        this.detectionCache = new Map();
         this.logger = new Logger("GeminiCLIDetector");
         this.config = {
             preferredCLIMode: "auto",

@@ -3,8 +3,9 @@
  * @description Manages a catalog of available MCP servers, their capabilities, and lifecycle.
  */
 export class MCPServerRegistry {
+    settingsManager;
+    registeredServers = new Map();
     constructor(settingsManager) {
-        this.registeredServers = new Map();
         this.settingsManager = settingsManager;
     }
     /**

@@ -8,6 +8,7 @@ import chalk from "chalk";
 import { SQLiteMemoryManager } from "../memory/sqlite-manager.js";
 import { HiveMindManager } from "../core/hive-mind-manager.js";
 export class GeminiFlowCLI {
+    program;
     constructor() {
         this.program = new Command();
         this.setupProgram();

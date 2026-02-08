@@ -4,6 +4,8 @@ import { Logger } from '../../utils/logger.js';
  * @description Orchestrates agent deployments and task execution across Google Kubernetes Engine, Cloud Run, Cloud Functions, Compute Engine, and App Engine.
  */
 export class ComputeCoordinator {
+    config;
+    logger;
     // Placeholders for GCP compute clients
     // private gkeClient: any;
     // private cloudRunClient: any;

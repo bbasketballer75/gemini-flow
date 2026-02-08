@@ -11,12 +11,21 @@
 import { EventEmitter } from "node:events";
 import { Logger } from "../utils/logger.js";
 export class EdgeCacheCDN extends EventEmitter {
+    logger;
+    config;
+    cdnConfig;
+    edgeNodes = new Map();
+    cacheEntries = new Map();
+    cacheStrategies = new Map();
+    cdnEndpoints = new Map();
+    analytics;
+    nodeSelector;
+    predictionEngine;
+    invalidationManager;
+    loadBalancer;
+    compressionEngine;
     constructor(config, cdnConfig) {
         super();
-        this.edgeNodes = new Map();
-        this.cacheEntries = new Map();
-        this.cacheStrategies = new Map();
-        this.cdnEndpoints = new Map();
         this.logger = new Logger("EdgeCacheCDN");
         this.config = config;
         this.cdnConfig = cdnConfig;

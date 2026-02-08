@@ -4,8 +4,9 @@ import { Logger } from '../../utils/logger.js';
  * @description Manages the registration, execution, and lifecycle of event-driven hooks.
  */
 export class HookRegistry {
+    hooks = new Map(); // eventType -> HookDefinition[]
+    logger;
     constructor() {
-        this.hooks = new Map(); // eventType -> HookDefinition[]
         this.logger = new Logger('HookRegistry');
         this.logger.info('Hooks Registry initialized.');
     }

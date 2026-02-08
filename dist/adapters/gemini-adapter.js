@@ -4,9 +4,10 @@
  */
 import { BaseModelAdapter, } from "./base-model-adapter.js";
 export class GeminiAdapter extends BaseModelAdapter {
+    googleAIClient;
+    isGoogleAIInitialized = false;
     constructor(config) {
         super(config);
-        this.isGoogleAIInitialized = false;
     }
     async initialize() {
         // Initialize Gemini API client

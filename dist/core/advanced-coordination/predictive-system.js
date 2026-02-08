@@ -4,6 +4,9 @@ import { Logger } from '../../utils/logger.js';
  * @description Implements predictive coordination capabilities for enhanced hive-mind operations.
  */
 export class PredictiveCoordinationSystem {
+    config;
+    logger;
+    neuralModels;
     constructor(config, neuralModels) {
         this.config = config;
         this.logger = new Logger('PredictiveCoordinationSystem');

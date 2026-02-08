@@ -10,6 +10,7 @@ import ora from "ora";
 import { Logger } from "../../utils/logger.js";
 import { getExtensionManager } from "../../services/extension-manager.js";
 export class GemExtensionsCommand extends Command {
+    logger;
     constructor() {
         super("gem-extensions");
         this.logger = new Logger("GemExtensions");

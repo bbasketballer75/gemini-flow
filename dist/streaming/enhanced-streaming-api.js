@@ -18,9 +18,21 @@ import { A2AMultimediaExtension } from "./a2a-multimedia-extension.js";
 import { QualityAdaptationEngine } from "./quality-adaptation-engine.js";
 import { EdgeCacheCDN } from "./edge-cache-cdn.js";
 export class EnhancedStreamingAPI extends EventEmitter {
+    logger;
+    config;
+    webrtc;
+    codecManager;
+    bufferSync;
+    a2aExtension;
+    qualityEngine;
+    edgeCache;
+    sessions = new Map();
+    performanceMonitor;
+    errorHandler;
+    optimizationEngine;
+    securityManager;
     constructor(config) {
         super();
-        this.sessions = new Map();
         this.logger = new Logger("EnhancedStreamingAPI");
         this.config = config;
         // Initialize core components
@@ -864,10 +876,11 @@ export class EnhancedStreamingAPI extends EventEmitter {
  * Performance monitoring system
  */
 class PerformanceMonitor extends EventEmitter {
+    config;
+    streams = new Map();
+    startTime = Date.now();
     constructor(config) {
         super();
-        this.streams = new Map();
-        this.startTime = Date.now();
         this.config = config;
     }
     start() {
@@ -922,6 +935,7 @@ class StreamingErrorHandler {
  * Performance optimization engine
  */
 class PerformanceOptimizationEngine {
+    config;
     constructor(config) {
         this.config = config;
     }
@@ -930,6 +944,7 @@ class PerformanceOptimizationEngine {
  * Streaming security manager
  */
 class StreamingSecurityManager {
+    config;
     constructor(config) {
         this.config = config;
     }

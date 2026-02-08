@@ -12,28 +12,31 @@ import { SimpleAuth } from "../core/simple-auth.js";
 import { SimpleInteractive } from "./simple-interactive.js";
 import { Logger } from "../utils/logger.js";
 export class GeminiCLI {
+    program;
+    auth;
+    logger;
+    // Available models
+    availableModels = [
+        {
+            name: "gemini-1.5-flash",
+            description: "Fast and versatile performance for diverse tasks",
+            maxTokens: 1000000,
+            supportedFeatures: ["text", "image", "audio", "video"],
+        },
+        {
+            name: "gemini-1.5-pro",
+            description: "Complex reasoning tasks requiring more intelligence",
+            maxTokens: 2000000,
+            supportedFeatures: ["text", "image", "audio", "video", "code"],
+        },
+        {
+            name: "gemini-1.0-pro",
+            description: "Natural language tasks, multi-turn text and code chat",
+            maxTokens: 30720,
+            supportedFeatures: ["text", "code"],
+        },
+    ];
     constructor() {
-        // Available models
-        this.availableModels = [
-            {
-                name: "gemini-1.5-flash",
-                description: "Fast and versatile performance for diverse tasks",
-                maxTokens: 1000000,
-                supportedFeatures: ["text", "image", "audio", "video"],
-            },
-            {
-                name: "gemini-1.5-pro",
-                description: "Complex reasoning tasks requiring more intelligence",
-                maxTokens: 2000000,
-                supportedFeatures: ["text", "image", "audio", "video", "code"],
-            },
-            {
-                name: "gemini-1.0-pro",
-                description: "Natural language tasks, multi-turn text and code chat",
-                maxTokens: 30720,
-                supportedFeatures: ["text", "code"],
-            },
-        ];
         this.program = new Command();
         this.auth = new SimpleAuth();
         this.logger = new Logger("GeminiCLI");

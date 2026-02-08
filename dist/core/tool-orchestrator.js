@@ -3,8 +3,9 @@
  * @description Establishes the base orchestration system for discovering, registering, and executing MCP tools.
  */
 export class ToolOrchestrator {
+    serverRegistry;
+    tools = new Map(); // toolName -> ToolDefinition
     constructor(serverRegistry) {
-        this.tools = new Map(); // toolName -> ToolDefinition
         this.serverRegistry = serverRegistry;
     }
     /**

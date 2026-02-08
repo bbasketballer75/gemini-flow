@@ -16,9 +16,12 @@ import { GeminiCLIDetector, isOfficialGeminiCLIAvailable } from "./gemini-cli-de
  * with seamless context integration and fallback capabilities.
  */
 export class UnifiedCommandRouter extends EventEmitter {
+    logger;
+    cliDetector;
+    activeProcesses = new Set();
+    config;
     constructor(options = {}) {
         super();
-        this.activeProcesses = new Set();
         this.logger = new Logger("UnifiedCommandRouter");
         this.cliDetector = new GeminiCLIDetector();
         this.config = {

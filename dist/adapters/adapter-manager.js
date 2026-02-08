@@ -8,15 +8,20 @@ import { EventEmitter } from "node:events";
 import { Logger } from "../utils/logger.js";
 import { UnifiedAPI, } from "./unified-api.js";
 export class AdapterManager extends EventEmitter {
+    logger;
+    config;
+    unifiedAPI;
+    systemHealth;
+    alerts = [];
+    performancePredictor;
+    // Advanced error handling
+    errorPatterns = new Map();
+    adaptiveThresholds = new Map();
+    fallbackHistory = new Map();
+    // Adapter registry for direct management
+    adapters = new Map();
     constructor(config) {
         super();
-        this.alerts = [];
-        // Advanced error handling
-        this.errorPatterns = new Map();
-        this.adaptiveThresholds = new Map();
-        this.fallbackHistory = new Map();
-        // Adapter registry for direct management
-        this.adapters = new Map();
         this.logger = new Logger("AdapterManager");
         this.config = config;
         this.unifiedAPI = new UnifiedAPI(config.unifiedAPI);
@@ -835,9 +840,7 @@ export class AdapterManager extends EventEmitter {
  * Performance Predictor for adaptive optimization
  */
 class PerformancePredictor {
-    constructor() {
-        this.trainingData = [];
-    }
+    trainingData = [];
     // Would be actual ML model in production - removed unused field
     recordPerformance(data) {
         this.trainingData.push(data);

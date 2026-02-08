@@ -13,26 +13,36 @@ import { EventEmitter } from "node:events";
 import { Logger } from "../utils/logger.js";
 import crypto from "crypto";
 export class SecurityOptimizationManager extends EventEmitter {
+    logger;
+    orchestrator;
+    performance;
+    auth;
+    router;
+    // Security and optimization state
+    securityPolicy;
+    optimizationFlags;
+    canaryDeployments = new Map();
+    costOptimizations = new Map();
+    auditLog = [];
+    // Notification and monitoring
+    notificationConfig;
+    costTracker = new Map();
+    securityAlerts = new Set();
+    // Self-analysis and meta-optimization
+    analysisHistory = [];
+    optimizationLearning = new Map();
+    emergencyProtocols = new Map();
+    // Performance and security metrics
+    metrics = {
+        totalOptimizations: 0,
+        securityBlocks: 0,
+        costSavings: 0,
+        emergencyOverrides: 0,
+        canarySuccessRate: 0,
+        metaImprovements: 0,
+    };
     constructor(orchestrator, performance, auth, router) {
         super();
-        this.canaryDeployments = new Map();
-        this.costOptimizations = new Map();
-        this.auditLog = [];
-        this.costTracker = new Map();
-        this.securityAlerts = new Set();
-        // Self-analysis and meta-optimization
-        this.analysisHistory = [];
-        this.optimizationLearning = new Map();
-        this.emergencyProtocols = new Map();
-        // Performance and security metrics
-        this.metrics = {
-            totalOptimizations: 0,
-            securityBlocks: 0,
-            costSavings: 0,
-            emergencyOverrides: 0,
-            canarySuccessRate: 0,
-            metaImprovements: 0,
-        };
         this.logger = new Logger("SecurityOptimizationManager");
         this.orchestrator = orchestrator;
         this.performance = performance;

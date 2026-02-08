@@ -4,6 +4,8 @@ import { Logger } from '../utils/logger.js';
  * @description Implements automated CI/CD pipelines for testing, building, and deploying Gemini-Flow.
  */
 export class CiCdPipeline {
+    config;
+    logger;
     constructor(config) {
         this.config = config;
         this.logger = new Logger('CiCdPipeline');

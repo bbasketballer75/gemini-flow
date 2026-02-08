@@ -4,8 +4,10 @@ import { Logger } from '../../utils/logger.js';
  * @description Implements comprehensive tool management, including metadata, versioning, and access control.
  */
 export class ToolRegistry {
+    dbCore;
+    logger;
+    toolsMetadata = new Map(); // toolName -> metadata
     constructor(dbCore) {
-        this.toolsMetadata = new Map(); // toolName -> metadata
         this.dbCore = dbCore;
         this.logger = new Logger('ToolRegistry');
     }

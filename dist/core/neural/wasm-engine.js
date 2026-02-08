@@ -4,6 +4,8 @@ import { Logger } from '../../utils/logger.js';
  * @description Provides high-performance neural processing with WebAssembly acceleration.
  */
 export class WasmNeuralEngine {
+    config;
+    logger;
     // Placeholder for TensorFlow.js WASM backend or custom WASM runtime
     // private tfWasmBackend: any;
     constructor(config) {

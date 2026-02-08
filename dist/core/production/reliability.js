@@ -4,6 +4,8 @@ import { Logger } from '../../utils/logger.js';
  * @description Implements features for ensuring system reliability and resilience, including circuit breakers, retries, and failover.
  */
 export class SystemReliability {
+    config;
+    logger;
     constructor(config) {
         this.config = config;
         this.logger = new Logger('SystemReliability');

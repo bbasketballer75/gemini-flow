@@ -4,6 +4,9 @@ import { Logger } from '../utils/logger.js';
  * @description Provides critical verification of MCP settings integration, ensuring successful transfer and functionality.
  */
 export class McpVerification {
+    config;
+    logger;
+    settingsManager;
     constructor(config, settingsManager) {
         this.config = config;
         this.logger = new Logger('McpVerification');

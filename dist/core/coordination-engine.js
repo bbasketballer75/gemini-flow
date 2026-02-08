@@ -4,6 +4,11 @@ import { Logger } from '../../utils/logger.js';
  * @description Provides advanced swarm coordination capabilities, including intelligent task distribution and robust communication protocols.
  */
 export class CoordinationEngine {
+    config;
+    logger;
+    modelOrchestrator;
+    computeCoordinator;
+    communicationCoordinator;
     constructor(config, modelOrchestrator, computeCoordinator, communicationCoordinator) {
         this.config = config;
         this.logger = new Logger('CoordinationEngine');

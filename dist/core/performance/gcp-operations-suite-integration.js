@@ -4,6 +4,8 @@ import { Logger } from '../../utils/logger.js';
  * @description Provides enterprise-grade monitoring and observability by integrating with Google Cloud Operations Suite.
  */
 export class GcpOperationsSuiteIntegration {
+    config;
+    logger;
     // Placeholders for GCP Operations Suite clients
     // private monitoringClient: any;
     // private loggingClient: any;

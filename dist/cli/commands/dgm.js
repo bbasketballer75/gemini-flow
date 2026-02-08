@@ -10,6 +10,7 @@ import ora from 'ora';
 import { Logger } from '../../utils/logger.js';
 import { DGMSystemFactory, createDGMSystem } from '../../core/dgm/index.js';
 export class DGMCommand extends Command {
+    logger;
     constructor() {
         super('dgm');
         this.description('Darwin Gödel Machine - Evolutionary cleanup and self-improving system')

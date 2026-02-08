@@ -7,9 +7,13 @@
 import { EventEmitter } from "node:events";
 import { Logger } from "../utils/logger.js";
 export class BaseModelAdapter extends EventEmitter {
+    logger;
+    config;
+    capabilities;
+    isInitialized = false;
+    lastHealthCheck;
     constructor(config) {
         super();
-        this.isInitialized = false;
         this.config = config;
         this.logger = new Logger(`Adapter:${config.modelName}`);
         this.capabilities = this.getModelCapabilities();

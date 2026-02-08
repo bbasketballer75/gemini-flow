@@ -4,6 +4,8 @@ import { Logger } from '../utils/logger.js';
  * @description Orchestrates and executes comprehensive end-to-end workflow tests, performance benchmarking, and load testing.
  */
 export class E2eWorkflowTester {
+    config;
+    logger;
     // Conceptual instances of components for E2E testing
     // private toolExecutor: ToolExecutor;
     // private sqliteMemoryCore: SQLiteMemoryCore;

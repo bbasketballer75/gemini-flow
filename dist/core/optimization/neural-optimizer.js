@@ -4,6 +4,10 @@ import { Logger } from '../../utils/logger.js';
  * @description Optimizes neural network performance, including WASM tuning, model optimization, and GPU acceleration.
  */
 export class NeuralOptimizer {
+    config;
+    logger;
+    wasmManager;
+    neuralModels;
     constructor(config, wasmManager, neuralModels) {
         this.config = config;
         this.logger = new Logger('NeuralOptimizer');

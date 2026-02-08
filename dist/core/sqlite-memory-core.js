@@ -5,6 +5,7 @@ import * as path from 'path';
 const DB_PATH = path.join(process.cwd(), '.hive-mind', 'memory.db');
 // --- SQLiteMemoryCore Class ---
 export class SQLiteMemoryCore {
+    db;
     constructor() { }
     /**
      * Initializes the SQLite database connection and creates tables if they don't exist.

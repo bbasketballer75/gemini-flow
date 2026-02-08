@@ -13,9 +13,8 @@ const SETTINGS_FILE_PATH = path.join(GEMINI_DIR, 'settings.json');
  * @description Manages reading, writing, and validating MCP server configurations.
  */
 export class MCPSettingsManager {
-    constructor() {
-        this.settings = null;
-    }
+    settings = null;
+    constructor() { }
     /**
      * Reads the MCP settings from the settings.json file.
      * If the file does not exist, it returns an empty settings object.

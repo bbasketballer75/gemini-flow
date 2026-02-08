@@ -4,6 +4,8 @@ import { Logger } from '../utils/logger.js';
  * @description Orchestrates and executes a comprehensive test suite including unit, integration, performance, and security tests.
  */
 export class ComprehensiveTestRunner {
+    config;
+    logger;
     constructor(config) {
         this.config = config;
         this.logger = new Logger('ComprehensiveTestRunner');

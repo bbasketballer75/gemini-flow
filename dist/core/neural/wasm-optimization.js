@@ -4,6 +4,9 @@ import { Logger } from '../../utils/logger.js';
  * @description Provides advanced optimization techniques for WASM-accelerated neural networks.
  */
 export class WasmPerformanceOptimizer {
+    config;
+    logger;
+    wasmEngine;
     constructor(config, wasmEngine) {
         this.config = config;
         this.logger = new Logger('WasmPerformanceOptimizer');

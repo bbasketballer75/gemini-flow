@@ -90,9 +90,12 @@ export class NamespaceUtils {
     }
 }
 export class SQLiteMemoryManager extends EventEmitter {
+    db;
+    logger;
+    cleanupInterval;
+    implementation = "sql.js";
     constructor(db, implementation) {
         super();
-        this.implementation = "sql.js";
         this.logger = new Logger("SQLiteMemory");
         this.db = db;
         this.implementation = implementation;

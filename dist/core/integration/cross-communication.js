@@ -4,6 +4,11 @@ import { Logger } from '../../utils/logger.js';
  * @description Provides standardized communication protocols, event routing, and data synchronization between all Gemini-Flow system components.
  */
 export class CrossComponentCommunication {
+    config;
+    logger;
+    eventBus;
+    databaseCoordinator;
+    communicationCoordinator;
     constructor(config, eventBus, databaseCoordinator, communicationCoordinator) {
         this.config = config;
         this.logger = new Logger('CrossComponentCommunication');

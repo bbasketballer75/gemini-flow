@@ -4,6 +4,8 @@ import { Logger } from '../../utils/logger.js';
  * @description Provides central coordination, health checking, and lifecycle management for all Gemini-Flow subsystems.
  */
 export class SystemController {
+    config;
+    logger;
     // Private instances of all subsystems (conceptual)
     // private mcpSettingsManager: MCPSettingsManager;
     // private sqliteMemoryCore: SQLiteMemoryCore;

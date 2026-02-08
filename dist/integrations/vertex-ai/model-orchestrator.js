@@ -4,6 +4,8 @@ import { Logger } from '../../utils/logger.js';
  * @description Manages dynamic model selection, invocation, and optimization for Vertex AI.
  */
 export class ModelOrchestrator {
+    config;
+    logger;
     // Placeholder for Vertex AI client
     // private vertexAiClient: any;
     constructor(config) {

@@ -9,8 +9,12 @@ import ora from "ora";
 import { SimpleAuth } from "../core/simple-auth.js";
 import { Logger } from "../utils/logger.js";
 export class SimpleInteractive {
+    auth;
+    logger;
+    rl;
+    history = [];
+    options;
     constructor(options = {}) {
-        this.history = [];
         this.auth = new SimpleAuth();
         this.logger = new Logger("SimpleInteractive");
         this.options = {

@@ -4,6 +4,8 @@ import { Logger } from '../utils/logger.js';
  * @description Manages Google Cloud infrastructure provisioning, deployment, and security using Infrastructure as Code principles.
  */
 export class InfrastructureManager {
+    config;
+    logger;
     constructor(config) {
         this.config = config;
         this.logger = new Logger('InfrastructureManager');
